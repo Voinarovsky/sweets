@@ -13,6 +13,7 @@ def print_field():      #вывод поля
 
 print_field()
 
+#что делает def и как к ней обращаться
 
 def player_move():          #ход игрока
     print('Please enter your move (row,col): ') #пишет что надо написать свой ход
@@ -27,17 +28,8 @@ def player_move():          #ход игрока
 
 
 # ход компьютера
-from random import randint  #компьютер рандомно выбирает своей ход
-
-
-def ai_move():
-    x = randint(0, 2)
-    y = randint(0, 2)
-    while field[x][y] != '.':
-        x = randint(0, 2)
-        y = randint(0, 2)
-    field[x][y] = 'O'
-
+def check_line():
+   if O in field[row]
 #массив с вариантами победы
 WINS = [
     [(0, 0), (0, 1), (0, 2)],  # 0-я строка
@@ -66,7 +58,7 @@ def check_win():
 
 
 check_win()
-#вывод выйгрыша или пройгрыша
+#работа программы цикл действий
 while True:
     player_move()
     print_field()
