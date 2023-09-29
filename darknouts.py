@@ -8,10 +8,11 @@ def com():
     b = [b[i] + a[i] for i in range(10)]
     print(b)
 
-if sum_1 * sum_2 > 100:
+if sum_1 * sum_1 > 100:
     com()
 
 if sum_1 * sum_2 < 10000:
+    print(b)
     com()
 
 if sum_2 * sum_2 > 1000:
