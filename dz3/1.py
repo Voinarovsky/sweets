@@ -7,4 +7,4 @@ def unix2dos(file_path):
     with open(file_path, 'w') as file:
         file.write(content)
 
-unix2dos('sample1.json')
+unix2dos('1.txt')
