@@ -1,15 +1,19 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
-import seaborn as sns
-df = pd.read_csv('worldometer_data.csv')
-type(df)
-top_10 = df[(df['Population'] >= 115223736) & (df['Population'] != 331198130 )]
-# Задание цветов
-c = ["#FF5733", "#33FF57", "#3366FF"]
-q = [1,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4]
-# Создание графика с настроенными цветами
-top_10.plot(x="Country/Region", y="TotalCases", kind="bar", rot=5, fontsize=q, color= c)
+import matplotlib.pyplot as plt
+from matplotlib import colors
 
-# Отображение графика
-plt.show()
+def background_gradient(s, m, M, cmap='PuBu', low=0, high=0):
+    rng = M - m
+    norm = colors.Normalize(m - (rng * low),
+                            M + (rng * high))
+    normed = norm(s.values)
+    c = [colors.rgb2hex(x) for x in plt.cm.get_cmap(cmap)(normed)]
+    return ['background-color: %s' % color for color in c]
+
+df = pd.DataFrame([[3,2,10,4],[20,1,3,2],[5,4,6,1]])
+df.style.apply(background_gradient,
+               cmap='PuBu',
+               m=df.min().min(),
+               M=df.max().max(),
+               low=0,
+               high=0.2)

@@ -7,8 +7,9 @@ df = pd.read_csv('worldometer_data.csv')
 type(df)
 top_10 = df[(df['Population'] >= 115223736) & (df['Population'] != 331198130 )]
 
-top_10['alpha'] = [1,0.6,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3]
-ax = sns.barplot(data=top_10, x="Country/Region", y="TotalCases", palette=['#ff0000', '#a52a2a', '#fa8072', '#8b0000', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a'] )
-for bar, alpha in zip(ax.containers[0], df['alpha']):
-    bar.set_alpha(alpha)
+g = sns.PairGrid(df, diag_sharey=False)
+g.map_upper(sns.scatterplot, s=15)
+g.map_lower(sns.kdeplot)
+g.map_diag(sns.kdeplot, lw=2)
+sns.barplot(data=top_10, x="Country/Region", y="TotalCases", color='blue')
 plt.show()

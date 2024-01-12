@@ -46,8 +46,10 @@ for i in range(len(dfP)):
 m = max(w)
 q = []
 for i in range(len(w)):
-    c = (w[i] * 1.5)/m
+    c = (w[i] * 0.6)/m
     q.append(c)
 
-sns.barplot(data=top_10, x="Country/Region", y="TotalCases",width = q, palette=['#ff0000', '#a52a2a', '#fa8072', '#8b0000', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a'] )
+# sns.set_style("ticks",{'axes.grid' : True})
+sns.barplot(data=top_10, x="Country/Region", y="TotalCases", width=0.9, palette=['#ff00001b', '#a52a2ac3', '#fa8072', '#8b0000', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a'] )
+sns.barplot(data=top_10, x="Country/Region", y="TotalCases", width=q, color='black')
 plt.show()
