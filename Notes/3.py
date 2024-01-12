@@ -7,7 +7,7 @@ df = pd.read_csv('worldometer_data.csv')
 type(df)
 top_10 = df[(df['Population'] >= 115223736) & (df['Population'] != 331198130 )]
 
-TotalRecovered = []
+TotalRecovered = [2047660, 1377384, 676357,308848,256058,143824, 75645, 32430,28877,28877]
 Deaths = [98644,41638,14606,60517,6035,3306,5521,930,2016,365]
 t = []
 for i in range(len(Deaths)):
@@ -50,6 +50,18 @@ for i in range(len(w)):
     q.append(c)
 
 # sns.set_style("ticks",{'axes.grid' : True})
-sns.barplot(data=top_10, x="Country/Region", y="TotalCases", width=0.9, palette=['#ff00001b', '#a52a2ac3', '#fa8072', '#8b0000', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a'] )
+ax= sns.barplot(data=top_10, x="Country/Region", y="TotalCases", width=0.9, palette=['#ff00001b', '#a52a2ac3', '#fa8072', '#8b0000', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a'] )
 sns.barplot(data=top_10, x="Country/Region", y="TotalCases", width=q, color='black')
+# for i in range(len(TotalRecovered)):
+#     b = TotalRecovered[i]
+ax.bar_label(ax.containers[0], label_type='edge',fmt='2047660', color='blue', rotation=90, fontsize=8, padding=3)
+ax.bar_label(ax.containers[1], label_type='edge',fmt='1377384', color='blue', rotation=90, fontsize=8, padding=3)
+ax.bar_label(ax.containers[2], label_type='edge',fmt='676357', color='blue', rotation=90, fontsize=8, padding=3)
+ax.bar_label(ax.containers[3], label_type='edge',fmt='308848', color='blue', rotation=90, fontsize=8, padding=3)
+ax.bar_label(ax.containers[4], label_type='edge',fmt='256058', color='blue', rotation=90, fontsize=8, padding=3)
+ax.bar_label(ax.containers[5], label_type='edge',fmt='143824', color='blue', rotation=90, fontsize=8, padding=3)
+ax.bar_label(ax.containers[6], label_type='edge',fmt='75645', color='blue', rotation=90, fontsize=8, padding=3)
+ax.bar_label(ax.containers[7], label_type='edge',fmt='32430', color='blue', rotation=90, fontsize=8, padding=3)
+ax.bar_label(ax.containers[8], label_type='edge',fmt='28877', color='blue', rotation=90, fontsize=8, padding=3)
+ax.bar_label(ax.containers[9], label_type='edge',fmt='9027', color='blue', rotation=90, fontsize=8, padding=3)
 plt.show()
