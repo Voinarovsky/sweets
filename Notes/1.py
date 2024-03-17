@@ -1,15 +1,16 @@
-import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-import seaborn as sns
+from time import perf_counter
+data1 = np.random.random_sample(size = 2**4)
+data2 = np.random.random_sample(size = 2**4)
 
-df = pd.read_csv('worldometer_data.csv')
-type(df)
-top_10 = df[(df['Population'] >= 115223736) & (df['Population'] != 331198130 )]
+def multiplication(data1: list,data2: list) -> list:
+    t1_start = perf_counter()
+    data_m = [data1[i] * data2[i] for i in range(len(data1))]
+    t1_stop = perf_counter()
+    print("Elapsed time:", t1_stop-t1_start)
+    return data_m
 
-g = sns.PairGrid(df, diag_sharey=False)
-g.map_upper(sns.scatterplot, s=15)
-g.map_lower(sns.kdeplot)
-g.map_diag(sns.kdeplot, lw=2)
-sns.barplot(data=top_10, x="Country/Region", y="TotalCases", color='blue')
-plt.show()
+print(data1)
+print(data2)
+print(multiplication(data1,data2))
+
