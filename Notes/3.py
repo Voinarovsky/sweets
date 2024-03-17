@@ -4,7 +4,7 @@ import pandas as pd
 import seaborn as sns
 
 df = pd.read_csv('worldometer_data.csv')
-type(df)
+# type(df)
 top_10 = df[(df['Population'] >= 115223736) & (df['Population'] != 331198130 )]
 
 TotalRecovered = [2047660, 1377384, 676357,308848,256058,143824, 75645, 32430,28877,28877]
@@ -50,7 +50,7 @@ for i in range(len(w)):
     q.append(c)
 
 # sns.set_style("ticks",{'axes.grid' : True})
-ax= sns.barplot(data=top_10, x="Country/Region", y="TotalCases", width=0.9, palette=['#ff00001b', '#a52a2ac3', '#fa8072', '#8b0000', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a', '#e9967a'] )
+ax = sns.barplot(data=top_10, x="Country/Region", y="TotalCases", width=0.9, palette = t )
 sns.barplot(data=top_10, x="Country/Region", y="TotalCases", width=q, color='black')
 # for i in range(len(TotalRecovered)):
 #     b = TotalRecovered[i]

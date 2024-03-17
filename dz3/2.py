@@ -1,8 +1,8 @@
-import json
-import yaml
-from pathlib import Path
 
 def json2yaml(json_file):
+    import json
+    import yaml
+    from pathlib import Path
     # Открываем и читаем json-файл
     with open(json_file, 'r') as f: #использую with что бы автоматически закрывать файл
         json_data = json.load(f)
