@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
-import numpy as np
-import scipy.stats as sps
+
 import math
 import pandas as pd
 
