@@ -10,4 +10,3 @@ while camera.isOpened():
 camera.close()
 cv2.destroyAllWindows()
 
-exit(-1)
