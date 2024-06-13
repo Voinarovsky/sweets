@@ -12,13 +12,16 @@
         <form>
             <div>
                 <input type="text" name="response" id="response">
-                <label for="response">←Отзыв | Ваша оценка→</label>
-                <input name="estimation1" type="checkbox" id="estimation1">
-                <label for="estimation1">Плохо</label>
-                <input name="estimation2" type="checkbox" id="estimation2">
-                <label for="estimation2">Нормально</label>
-                <input name="estimation3" type="checkbox" id="estimation3">
-                <label for="estimation3">Хорошо</label>
+                <label for="response">←Отзыв</label>
+                <div class="form-div">
+                    <select name="estimation" id="estimation">
+                        <option value='1'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                    </select>
+                    <label for="estimation">←Ваша оценка</label>
+                </div>
+
                 <div>
                     <button onClick="createFeedback()">
                         Добавить
@@ -33,12 +36,10 @@
                     <div>
                         {{  feedback['response']}}
                     </div>
-                    <input value="{{feedback['id']}}" onchange="updateFeedback1(this)" name="estimation1" type="checkbox" {%if feedback.estimation1 %} checked{% endif %}/>
-                    <label for="estimation1">Плохо</label>
-                    <input value="{{feedback['id']}}" onchange="updateFeedback2(this)" name="estimation2" type="checkbox" {%if feedback.estimation2 %} checked{% endif %}/>
-                    <label for="estimation2">Нормально</label>
-                    <input value="{{feedback['id']}}" onchange="updateFeedback3(this)" name="estimation3" type="checkbox" {%if feedback.estimation3 %} checked{% endif %}/>
-                    <label for="estimation3">Хорошо</label>
+                    <div>
+                        <label for="estimation">Оценка:</label>
+                        <input value="{{feedback['estimation']}}" onchange="updateFeedback(this)" name="estimation" id="estimation"/>
+                    </div>
                 </div>
             </li>
             {% endfor%}

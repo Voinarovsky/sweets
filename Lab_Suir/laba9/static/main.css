@@ -1,9 +1,9 @@
 ul {
-    list-style-type:'🧕'
+    list-style-type:'✅'
 }
 
 li {
     margin-bottom: 10px;
-    border: solid blue 1px;
+    border: solid green 1px;
     padding: 10px;
 }
