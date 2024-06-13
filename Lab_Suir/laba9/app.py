@@ -16,17 +16,17 @@ app = Flask('pomogite')
 
 feedbacks = [
     {'id': 8383,
-     'text': 'плохо',
+     'response': 'плохо',
      'estimation1': False,
      'estimation2': False,
      'estimation3': False},
     {'id': 8353,
-     'text': 'плохо',
+     'response': 'плохо',
      'estimation1': False,
      'estimation2': False,
      'estimation3': False},
     {'id': 84533,
-     'text': 'плохо',
+     'response': 'плохо',
      'estimation1': False,
      'estimation2': False,
      'estimation3': False}
@@ -60,10 +60,18 @@ def modify_feedback2(feedback_id):
 @app.route('/estimation3/<int:feedback_id>', methods = ['PATCH'])
 def modify_feedback3(feedback_id):
     global feedbacks
-    estimation3 = request.json['estimation']
+    estimation3 = request.json['estimation3']
     for feedback in feedbacks:
         if feedback['id'] == feedback_id:
             feedback.update({'estimation3': estimation3})
+    return 'ok'
+@app.route('/feedback', methods=['POST'])
+def create_feedback():
+    data = request.json
+    last_id = feedbacks[-1]['id']
+    new_id = last_id + 1
+    data['id'] = new_id
+    feedbacks.append(data)
     return 'ok'
 
 if __name__ == '__main__':

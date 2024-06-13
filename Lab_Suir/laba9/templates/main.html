@@ -8,20 +8,36 @@
 
     <body>
         <hl>блабла</hl>
-
+        <form>
+            <div>
+                <input type="text" name="response" id="response">
+                <label for="response">←Отзыв | Ваша оценка→</label>
+                <input name="estimation1" type="checkbox" id="estimation1">
+                <label for="estimation1">Плохо</label>
+                <input name="estimation2" type="checkbox" id="estimation2">
+                <label for="estimation2">Нормально</label>
+                <input name="estimation3" type="checkbox" id="estimation3">
+                <label for="estimation3">Хорошо</label>
+                <div>
+                    <button onClick="createFeedback()">
+                        Добавить
+                    </button>
+                </div>
+            </div>
+        </form>
         <ul>
             {% for feedback in feedbacks_list %}
             <li>
                 <div>
                     <div>
-                        {{  feedback['text']}}
+                        {{  feedback['response']}}
                     </div>
                     <input value="{{feedback['id']}}" onchange="updateFeedback1(this)" name="estimation1" type="checkbox" {%if feedback.estimation1 %} checked{% endif %}/>
-                    <label for="estimation1">1</label>
+                    <label for="estimation1">Плохо</label>
                     <input value="{{feedback['id']}}" onchange="updateFeedback2(this)" name="estimation2" type="checkbox" {%if feedback.estimation2 %} checked{% endif %}/>
-                    <label for="estimation2">2</label>
+                    <label for="estimation2">Нормально</label>
                     <input value="{{feedback['id']}}" onchange="updateFeedback3(this)" name="estimation3" type="checkbox" {%if feedback.estimation3 %} checked{% endif %}/>
-                    <label for="estimation3">3</label>
+                    <label for="estimation3">Хорошо</label>
                 </div>
             </li>
             {% endfor%}
