@@ -1,5 +1,4 @@
-import matplotlib.pyplot as plt
-x = [1,2,3,4]
-y = [5,5,10,3]
-plt.hist(x=x, y=y)
-plt.show()
+from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+

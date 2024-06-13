@@ -1,5 +1,5 @@
-fh = open('1.txt')
-manifold = set()
-for line in fh:
-    manifold = manifold.union(list(line))
-print(manifold)
+a = [1,2,3,4]
+b= [4,3,2,1]
+for i in range(len(a)):
+    print(a[i])
+    print(b[i])
