@@ -57,7 +57,7 @@ def modify_feedback2(feedback_id):
             feedback.update({'estimation2': estimation2})
     return 'ok'
 
-@app.route('/estimation3/<int:feedback_id3>', methods = ['PATCH'])
+@app.route('/estimation3/<int:feedback_id>', methods = ['PATCH'])
 def modify_feedback3(feedback_id):
     global feedbacks
     estimation3 = request.json['estimation']

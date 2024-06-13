@@ -16,11 +16,11 @@
                     <div>
                         {{  feedback['text']}}
                     </div>
-                    <input value="{{feedback['id']}}" onchange="updateFeedback(this)" name="estimation1" type="checkbox" {%if feedback.estimation1 %} checked{% endif %}/>
+                    <input value="{{feedback['id']}}" onchange="updateFeedback1(this)" name="estimation1" type="checkbox" {%if feedback.estimation1 %} checked{% endif %}/>
                     <label for="estimation1">1</label>
-                    <input value="{{feedback['id']}}" onchange="updateFeedback(this)" name="estimation2" type="checkbox" {%if feedback.estimation2 %} checked{% endif %}/>
+                    <input value="{{feedback['id']}}" onchange="updateFeedback2(this)" name="estimation2" type="checkbox" {%if feedback.estimation2 %} checked{% endif %}/>
                     <label for="estimation2">2</label>
-                    <input value="{{feedback['id']}}" onchange="updateFeedback(this)" name="estimation3" type="checkbox" {%if feedback.estimation3 %} checked{% endif %}/>
+                    <input value="{{feedback['id']}}" onchange="updateFeedback3(this)" name="estimation3" type="checkbox" {%if feedback.estimation3 %} checked{% endif %}/>
                     <label for="estimation3">3</label>
                 </div>
             </li>
