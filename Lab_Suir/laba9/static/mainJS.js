@@ -17,3 +17,7 @@ function createFeedback(){
         body: JSON.stringify({'response': response || 'Без отзыва', 'estimation': estimation})
     })
 }
+function deleteAll(){
+    const estimation = document.getElementById('estimation');
+    response.remove()
+}

@@ -33,7 +33,6 @@ def main():
     print(feedbacks)
     return render_template('main.html', feedbacks_list = feedbacks)
 
-
 # @app.route('/estimation/<int:feedback_id>', methods = ['PATCH'])
 # def modify_feedback(feedback_id):
 #     feedback = Feedback.query.get(feedback_id)

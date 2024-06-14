@@ -4,6 +4,20 @@ ul {
 
 li {
     margin-bottom: 10px;
-    border: solid green 1px;
+    border: solid #F73859 2px;
     padding: 10px;
+}
+
+
+header{
+	width: 100%;
+	background: #D8E3AB;
+	height: 70px;
+}
+
+header{
+    width: 1500px;
+  height: 100px;
+  background-color: #7AC7C4;
+  margin-bottom: 10px;
 }
