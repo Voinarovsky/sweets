@@ -1,22 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Мега ултра супер крутые отзывы</title>
-</head>
-<body>
-    <hl>блабла</hl>
-    <ul>
-        {% for feedback in feedback_list %}
-        <li>
-            1
-        </li>
-        <li>
-            2
-        </li>
-        <li>
-            3
-        </li>
-    </ul>
-</body>
+    <head>
+        <title>Мега ултра супер крутые отзывы</title>
+        <body bgcolor="C4EDDE" text="384259"></body>
+        <script type="text/javascript" src='/static/mainJS.js'></script>
+        <link href="/static/main.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id = "wrap">
+        <header>
+            <h1>
+            <font>
+            <p class="descript">Прочти эти прекрасные отзывы и оставь свой!</p>
+            </font>
+            </h1>
+        </header>
+        </div>
+        <form>
+            <div>
+                <input type="text" name="response" id="response">
+                <label for="response">←Отзыв</label>
+                <div class="form-div">
+                    <select name="estimation" id="estimation">
+                        <option value='1'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                        <option value='4'>4</option>
+                        <option value='5'>5</option>
+                    </select>
+                    <label for="estimation">←Ваша оценка</label>
+                </div>
+
+                <div>
+                    <button onClick="createFeedback()">
+                        Добавить
+                    </button>
+                </div>
+                <div>
+                    <button onClick="deleteAll()">
+                        Удалить все
+                    </button>
+                </div>
+            </div>
+        </form>
+        <ul>
+            {% for feedback in feedbacks_list %}
+            <li>
+                <div>
+                    <div>
+                        {{  feedback['response']}}
+                    </div>
+                    <div>
+                        <label for="estimation">Оценка:</label>
+                        <input value="{{feedback['estimation']}}" onchange="updateFeedback(this)" name="estimation" id="estimation"/>
+                    </div>
+                </div>
+            </li>
+            {% endfor%}
+        </ul>
+    </body>
 </html>
